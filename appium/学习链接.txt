@@ -6,7 +6,6 @@ https://github.com/appium/appium/tree/master/docs
 
 https://github.com/appium/appium/sample-code/
 
-
 还能做的事情：
 1，试试其他的例子
 https://github.com/appium/appium/tree/master/sample-code/examples/java/junit/src/test/java/com/saucelabs/appium
