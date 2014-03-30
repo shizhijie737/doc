@@ -1,0 +1,7 @@
+Appium Inspector 
+https://github.com/appium/appium/blob/master/docs/finding-elements.md
+
+ËùÓĞÎÄµµ
+https://github.com/appium/appium/tree/master/docs
+
+https://github.com/appium/appium/sample-code/
