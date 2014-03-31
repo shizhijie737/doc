@@ -1,6 +1,3 @@
-Appium Inspector 
-https://github.com/appium/appium/blob/master/docs/finding-elements.md
-
 all docs
 https://github.com/appium/appium/tree/master/docs
 
@@ -10,3 +7,50 @@ what I can do now:
 1, try other samples
 https://github.com/appium/appium/tree/master/sample-code/examples/java/junit/src/test/java/com/saucelabs/appium
 2, trace zip exception
+3, study apk
+
+
+
+
+获取页面元素：
+Appium Inspector（只支持mac，windows现在不支持）
+https://github.com/appium/appium/blob/master/docs/finding-elements.md
+not fully supported for Windows platform.
+http://automatium.blogspot.com/2013/06/how-to-use-appium-inspector.html
+video
+https://www.youtube.com/watch?v=Hv9A9WfYF4g&noredirect=1
+
+hierarchyviewer，UIAutomatorViewer(andriod sdk自带tools目录下)
+获取控件信息的方式比对（1）
+http://blog.csdn.net/itfootball/article/details/21777835
+获取控件信息的方式比对（2）
+http://blog.csdn.net/itfootball/article/details/21788573
+https://groups.google.com/forum/#!topic/appium-discuss/M-0Me_Ldx_g
+Only way, as of now, to automate webviews (once which are embedded in native frame) is to use Selendroid
+You can use Selendroid inspector to identify objects
+
+https://groups.google.com/forum/#!topic/appium-discuss/_OfMr7MCy5Q
+I tried UIAutomator Viewer, but I got hierarchy of elements not name and id. Do you know how to derive xpath from the hierarchy(android layout.xml)
+hierarchyviewer
+you can use hierarchyviewer, ofcourse if wont provide you any xpath, but looking at tree I don't think its a big task to generate xpath
+The best solution I found is using appium-inspector on mac machine. By which you can find out xpath of elements.Alternately you can use UIAutomator Viewer from android sdk and you have to manually generate xpath of elements.
+Or you can find elements on screen using driver.findElements(By.tagName("tag_name"))   method of selenium and then use them.
+Like below, no need to use inspector.（感觉需要了解知道各种tag）
+    public List<WebElement> elementList; 
+    elementList = driver.findElements(By.tagName("EditText"));
+    elementList.get(0).clear();
+    elementList.get(0).sendKeys("Hi");
+	
+	List<WebElement>  buttons;
+	textBoxes = driver.findElements(By.tagName("Button"));
+	buttons.get(0).click();
+UIAutomatorViewer won't show the XPath. XPath is an appium thing. You'll have to construct the XPath yourself.
+
+	
+http://blog.csdn.net/Sasoritattoo/article/details/17579763
+由于uiautomator 工具依赖Android设备的可访问行来获取UI控件，所以这不是非常重要的。要支持uiautomator 工具需要一下条件：
+使用android:contentDescription属性给 ImageButton, ImageView, CheckBox和其他控件设置标签。
+使用android:hint 属性来标记EditText 控件，而不是使用里面的文本（文本内容用户是可以修改的）。
+对于用来提供操作视觉反馈的UI（文本或者图标），都添加一个android:hint 属性来识别。
+确保所有用户可操作的界面元素都可以通过方向控制键选中（例如轨迹球）。
+通过uiautomatorviewer 工具来确保所有的UI元素都可以被测试工具访问到。还可以通过“辅助功能”（在设置界面）中的“TalkBack”等服务来测试UI的可访问性。
