@@ -1,2 +1,2 @@
-Jason的文档空间
-文档一级目录下的文件夹使用项目名称命名
+Jason's doc workspace
+lst level folders should be named with project name
